@@ -1,7 +1,10 @@
+#![allow(unused)]
+
 use std::error;
 use std::fmt;
 
 pub(super) mod status_code_error; 
+pub(super) mod method_error; 
 
 #[derive(Debug)]
 struct PlaceHolderError;
@@ -19,7 +22,7 @@ pub struct Error {
 }
 
 enum ErrorKind {
-    StatusCode(PlaceHolderError),
+    StatusCode(status_code_error::InvalidStatusCode),
     Method(PlaceHolderError),
     Uri(PlaceHolderError),
     UriParts(PlaceHolderError),

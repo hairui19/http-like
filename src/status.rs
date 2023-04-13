@@ -1,3 +1,5 @@
+#![allow(unused)]
+
 use std::fmt;
 use std::num::NonZeroU16;
 use std::str;
