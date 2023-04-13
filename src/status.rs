@@ -2,6 +2,8 @@ use std::fmt;
 use std::num::NonZeroU16;
 use std::str;
 
+use crate::error::status_code_error::InvalidStatusCode;
+
 #[derive(Copy, Clone)]
 struct StatusCode(NonZeroU16);
 
@@ -141,19 +143,9 @@ impl<'a> TryFrom<&'a str> for StatusCode {
 }
 
 impl TryFrom<u16> for StatusCode {
-    type Error = InvalidStatusCode; 
+    type Error = InvalidStatusCode;
     fn try_from(src: u16) -> Result<StatusCode, InvalidStatusCode> {
         StatusCode::from_u16(src)
-    } 
-}
-
-struct InvalidStatusCode {
-    _priv: (),
-}
-
-impl InvalidStatusCode {
-    fn new() -> Self {
-        InvalidStatusCode { _priv: () }
     }
 }
 

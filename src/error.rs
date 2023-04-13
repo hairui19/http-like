@@ -1,6 +1,8 @@
 use std::error;
 use std::fmt;
 
+pub(super) mod status_code_error; 
+
 #[derive(Debug)]
 struct PlaceHolderError;
 
